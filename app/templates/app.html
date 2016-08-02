@@ -1,0 +1,56 @@
+<div layout="row" flex>
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        <md-toolbar class="md-theme-indigo md-tall">
+            <h1 class="md-toolbar-tools">Sidenav Left</h1>
+        </md-toolbar>
+        <md-content layout-padding>
+            <p>
+                Lorem ipsum dolor sit amet, 
+                consectetur adipisicing elit. 
+                Maxime repellat amet, quos debitis. 
+                Aliquam tenetur facere numquam sunt incidunt doloribus quisquam odit ipsum, 
+                dolorem laborum facilis soluta ad consequuntur optio!
+            </p>
+        </md-content>
+        <md-list>
+          <md-list-item ng-click="onClick($event)" ui-sref="app.home">
+              <md-icon md-svg-src="app/icons/ic_home_black_48px.svg" aria-label="Home" style="padding-bottom: 5px"></md-icon>
+              <p>Home</p>
+          </md-list-item>
+          <md-list-item ng-click="onClick($event)">
+              <md-icon md-svg-src="app/icons/ic_group_black_48px.svg" aria-label="Database Form" style="padding-bottom: 5px"></md-icon>
+              <p>Vendors</p>
+          </md-list-item>
+          <md-list-item ng-click="onClick($event)">
+              <md-icon md-svg-src="app/icons/ic_content_cut_black_48px.svg" aria-label="API Form" style="padding-bottom: 5px"></md-icon>
+              <p>Vendor Services</p>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item ng-click="onClick($event)" ui-sref="app.databaseForm">
+              <md-icon md-svg-src="app/icons/ic_book_black_48px.svg" aria-label="Database Form" style="padding-bottom: 5px"></md-icon>
+              <p>Database Form</p>
+          </md-list-item>
+          <md-list-item ng-click="onClick($event)" ui-sref="app.apiForm">
+              <md-icon md-svg-src="app/icons/ic_library_books_black_48px.svg" aria-label="API Form" style="padding-bottom: 5px"></md-icon>
+              <p>API Form</p>
+          </md-list-item>
+        </md-list>
+    </md-sidenav>
+    <div layout="column" flex>
+        <md-toolbar md-whiteframe="1" class="md-tall">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="toggleSidenav('left')" hide-gt-md>
+                    <md-icon md-svg-src="app/icons/ic_menu_white_48px.svg" aria-label="Menu"></md-icon>
+                </md-button>
+            </div>
+            <h2 class="md-toolbar-tools md-toolbar-tools-bottom" layout="row" layout-align="center">
+                <span>{{pageTitle}}</span>
+            </h2>
+        </md-toolbar>
+        <md-content 
+            layout="row"
+            flex ui-view="form-content">
+        </md-content>
+    </div>
+</div>
+    

@@ -1,0 +1,86 @@
+<style>
+    #form > div {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+</style>
+<div id="form" layout="column" flex-offset="30" flex="40">
+    <h2>Welcome User</h2>
+    <h2>Your Tracking ID is: {{tracking_id}}</h2>
+    <div layout="row" layout-align="center center">
+        <md-switch 
+            ng-model="operation"
+            ng-true-value="'Insert'" 
+            ng-false-value="'Update'" 
+            aria-value="Operation" 
+            ng-change="toggle()">
+            {{operation}}
+        </md-switch>
+    </div>
+    <div layout="row" id="entityUpdate">
+        <md-input-container class="md-block" flex layout-padding>
+            <label>Entity Name</label>
+            <md-select ng-model="entityId">
+                <md-option ng-repeat="entity in entityNames" value="{{entity.entityId}}" ng-click="getData(entity.entityId)">{{entity.entityName}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div layout="row" id="entityInsert">
+        <md-input-container class="md-block" flex layout-padding>
+            <label>Entity Name</label>
+            <input type="text" name="name" ng-model="entityName" value="{{entityName}}">
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="shortName">Short Name</label>
+            <input type="text" name="name" ng-model="shortName" value="{{shortName}}">
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label>Entity Type</label>
+            <md-select ng-model="entityType">
+                <md-option ng-repeat="entity in entityTypes" value="{{entity.value}}">{{entity.display}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="project">Project Name</label>
+            <input type="text" ng-model="projectName" value="{{projectName}}">
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="module">Module Name</label>
+            <input type="text" ng-model="moduleName" value="{{moduleName}}">
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="description">Description</label>
+            <textarea ng-model="description" value="{{description}}"></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="details">Details</label>
+            <textarea ng-model="details" value="{{details}}"></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="sample">Sample API</label>
+            <textarea ng-model="sample" value="{{sample}}"></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="center">
+        <md-button id="entityInsertButton" class="md-raised md-primary" ng-click="insert()">Insert</md-button>
+        <md-button id="entityUpdateButton" class="md-raised md-primary" ng-click="update()">Update</md-button>
+        <md-button class="md-raised md-warn" ng-click="delete()">Delete</md-button>
+    </div>
+</div>
+    
+    
+    

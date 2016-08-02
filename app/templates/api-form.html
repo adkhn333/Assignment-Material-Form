@@ -1,0 +1,99 @@
+<style>
+    #form > div {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    /*#form > div > md-input-container.md-icon-float > md-icon {
+        top: -4px;
+        left: -6px;
+    }*/
+</style>
+<div id="form" layout="column" flex-offset="30" flex="40">
+    <h2>Welcome User</h2>
+    <h2>Your Tracking ID is: {{tracking_id}}</h2>
+    <div layout="row" layout-align="center center">
+        <md-switch 
+            ng-model="operation"
+            ng-true-value="'Insert'" 
+            ng-false-value="'Update'" 
+            aria-value="Operation" 
+            ng-change="toggle()">
+            {{operation}}
+        </md-switch>
+    </div>
+    <div layout="row" id="entityUpdate">
+        <md-input-container class="md-block" flex layout-padding>
+            <label>API Name</label>
+            <md-select ng-model="apiName">
+                <md-option ng-repeat="apiL in api_list" ng-model="apiId" value="{{apiL.apiName}}" ng-click="getApi(apiL.apiId)">{{apiL.apiName}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div layout="row" id="entityInsert">
+        <md-input-container class="md-block" flex layout-padding>
+            <label>API Name</label>
+            <input type="text"" ng-model="apiName" value="{{apiName}}">
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="short">File Name</label>
+            <input type="text" ng-model="fileName" value="{{fileName}}">
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label>Api Type</label>
+            <md-select ng-model="apiType">
+                <md-option ng-repeat="apiT in apiTypes" value="{{apiT.value}}">{{apiT.display}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="project">Project Name</label>
+            <input type="text" ng-model="projectName" value="{{projectName}}">
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="module">Module Name</label>
+            <input type="text" ng-model="moduleName" value="{{moduleName}}">
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="description">Description</label>
+            <textarea ng-model="description" value="{{description}}"></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="details">Details</label>
+            <textarea ng-model="details" value="{{details}}"></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label for="Sample">Sample API</label>
+            <textarea ng-model="sampleApi" value="{{sampleApi}}"></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label>Parameter</label>
+            <input type="text" ng-model="parameter" value="{{parameter}}">
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container class="md-block" flex layout-padding>
+            <label>API Path</label>
+            <input type="text" ng-model="apiPath" value="{{apiPath}}">
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="center">
+        <md-button id="entityInsertButton" class="md-raised md-primary" ng-click="insert()">Insert</md-button>
+        <md-button id="entityUpdateButton" class="md-raised md-primary" ng-click="update()">Update</md-button>
+        <md-button class="md-raised md-warn" ng-click="delete()">Delete</md-button>
+    </div>
+</div>
